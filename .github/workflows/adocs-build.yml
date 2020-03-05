@@ -15,12 +15,12 @@ jobs:
       id: adocbuild
       uses: avattathil/asciidoctor-action@master
       with:
-          program: "asciidoctor -D docs --backend=html5 -o output/index.html docs/index.adoc"
+          program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html"
     - name: Print execution time
-      run: echo "Time ${{ steps.adocbuild.outputs.time }}"
+      run: echo "Time ${{ steps.adocbuild.outputs.time }} ${{ secrets.GITHUB_TOKEN }}"
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       env:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} 
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./
+        PUBLISH_DIR: ./output
