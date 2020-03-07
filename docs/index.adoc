@@ -1,20 +1,18 @@
+= Information Collector
 :toc: left
+:linkcss:
+:stylesdir: ../styles/
+:stylesheet: monospace.css
 :icons: font
 :doctype: book
 
-
-
-= Information Collector
-
 Just a collection of interresting stuff ;-)
-
-https://github.com/pipiobjo/blog
 
 == Cloud Deployments and DB State
 
 
 
-One way to prevent an old version from breaking, is to split up a migration into multiple steps.
+One way to prevent an old version from breaking, is to split a migration into multiple steps.
 
 E.g. you want to rename a column in the database. Renaming the column directly would break old versions of the app. This can be organized in multiple steps:
 
