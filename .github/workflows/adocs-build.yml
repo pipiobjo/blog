@@ -15,7 +15,7 @@ jobs:
       uses: asdf-vm/actions/install@v1.0.0
     - name: Build asciidoc
       id: adocbuild
-      run: asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css
+      run: asciidoctorj docs/index.adoc -D output -B ./ 
           #program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
           #program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
     - name: Copy styles
