@@ -13,12 +13,11 @@ jobs:
       uses: actions/checkout@v2
     - name: asdf_install
       uses: asdf-vm/actions/install@v1.0.0
-#    - name: Get build container
-#      id: adocbuild
-#      uses: avattathil/asciidoctor-action@master
-      with:
+    - name: Get build container
+      id: adocbuild
+      run: asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css
           #program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
-          program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
+          #program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
     - name: Print execution time
       run: echo "Time ${{ steps.adocbuild.outputs.time }}"
     - name: Deploy docs to ghpages
