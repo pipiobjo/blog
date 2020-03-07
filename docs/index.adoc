@@ -8,6 +8,8 @@
 
 Just a collection of interresting stuff ;-)
 
+https://github.com/pipiobjo/blog
+
 == Cloud Deployments and DB State
 
 

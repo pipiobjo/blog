@@ -11,13 +11,16 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: Get build container
-      id: adocbuild
-      uses: avattathil/asciidoctor-action@master
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1.0.0
+#    - name: Get build container
+#      id: adocbuild
+#      uses: avattathil/asciidoctor-action@master
       with:
-          program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
+          #program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
+          program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
     - name: Print execution time
-      run: echo "Time ${{ steps.adocbuild.outputs.time }} ${{ secrets.GITHUB_TOKEN }}"
+      run: echo "Time ${{ steps.adocbuild.outputs.time }}"
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with:
