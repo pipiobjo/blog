@@ -5,6 +5,7 @@
 :stylesheet: monospace.css
 :icons: font
 :doctype: book
+:source-highlighter: coderay
 
 
 Just a collection of interresting stuff ;-)
@@ -12,9 +13,58 @@ Just a collection of interresting stuff ;-)
 
 == asdf for github actions
 
-https://github.com/asdf-vm/asdf
-https://github.com/asdf-vm/actions
+* https://github.com/asdf-vm/asdf
+* https://github.com/asdf-vm/actions
 
+.sample .tool-versions
+
+[#src-listing]
+[source,bash]
+----
+
+asciidoctorj 2.2.0 <1>
+java adopt-openjdk-13.0.1+9_openj9-0.17.0
+
+----
+<1> Apply the tool and the version
+
+.sample github action
+[#src-listing]
+[source,yml]
+---- 
+
+name: build adocs
+
+on:
+  push:
+    branches:
+    - master
+jobs:
+  adoc_build:
+    runs-on: ubuntu-18.04
+    name: asciidoctor -D docs --backend=html5 -o index.html -a toc2 ddocs/index.adoc 
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+    - name: asdf_install
+      uses: asdf-vm/actions/install@v1.0.0 <1>
+    - name: Build asciidoc
+      id: adocbuild
+      run: asciidoctorj docs/index.adoc -D output <2>
+    - name: Copy styles
+      run: cp -R ./styles ./output
+    - name: Copy images
+      run: cp -R ./images ./output      
+    - name: Deploy docs to ghpages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} 
+        PUBLISH_BRANCH: gh-pages
+        PUBLISH_DIR: ./output
+
+----
+<1> Run the installation via asdf
+<2> Call your application
 
 == Cloud Deployments and DB State
 
