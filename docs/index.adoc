@@ -1,9 +1,11 @@
 = Information Collector
 :toc: left
+:sectnums:
 :stylesdir: ../styles/
 :stylesheet: monospace.css
 :icons: font
 :doctype: book
+
 
 Just a collection of interresting stuff ;-)
 
