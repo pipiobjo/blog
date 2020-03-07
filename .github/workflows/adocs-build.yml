@@ -18,8 +18,10 @@ jobs:
       run: asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css
           #program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
           #program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
-    - name: Print execution time
-      run: echo "Time ${{ steps.adocbuild.outputs.time }}"
+    - name: Copy styles
+      run: cp -R ./styles ./output"
+    - name: Copy images
+      run: cp -R ./images ./output"      
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with:
