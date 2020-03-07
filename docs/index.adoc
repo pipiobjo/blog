@@ -1,6 +1,5 @@
 = Information Collector
 :toc: left
-:linkcss:
 :stylesdir: ../styles/
 :stylesheet: monospace.css
 :icons: font
@@ -8,9 +7,14 @@
 
 Just a collection of interresting stuff ;-)
 
+
+== asdf for github actions
+
+https://github.com/asdf-vm/asdf
+https://github.com/asdf-vm/actions
+
+
 == Cloud Deployments and DB State
-
-
 
 One way to prevent an old version from breaking, is to split a migration into multiple steps.
 
