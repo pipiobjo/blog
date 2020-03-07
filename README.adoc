@@ -1,4 +1,4 @@
 # blog
 
 
-https://pipiobjo.github.io/blog/
+https://pipiobjo.github.io/blog/[Visit the blog]
