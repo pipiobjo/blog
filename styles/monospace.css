@@ -1,7 +1,9 @@
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 
 @import 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
-@import "../styles/asciidoctor-default.css";
+
+/* @import "../styles/asciidoctor-default.css"; */
+
 
 /* Default asciidoc style framework - important */
 
