@@ -1,17 +1,20 @@
 :toc: left
 :icons: font
+:doctype: book
+
+
 
 = Information Collector
 
 Just a collection of interresting stuff ;-)
 
-= Cloud Deployments and DB State
+== Cloud Deployments and DB State
 
 
 
-One way to prevent an old version from breaking is to split a migration into multiple steps.
+One way to prevent an old version from breaking, is to split up a migration into multiple steps.
 
-E.g. you want to rename a column in the database. Renaming the column directly would break old versions of the app. This can be split into multiple steps:
+E.g. you want to rename a column in the database. Renaming the column directly would break old versions of the app. This can be organized in multiple steps:
 
     Add a db migration that inserts the new column
     Change the app so that all writes go to the old and new column
@@ -34,7 +37,7 @@ https://cloudnativedevopsblog.com/posts/database-migrations/
 
 
 
-= Test your github actions locally
+== Test your github actions locally
 
 https://github.com/nektos/act
 

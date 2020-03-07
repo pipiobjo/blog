@@ -1,8 +1,9 @@
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 
 @import 'https://fonts.googleapis.com/css?family=Source+Code+Pro';
+@import "../styles/asciidoctor-default.css";
 
-/* @import "asciidoctor.css"; /* Default asciidoc style framework - important */
+/* Default asciidoc style framework - important */
 
 
 /* CUSTOMISATIONS */
@@ -10,7 +11,7 @@
 
 /* Change the values in root for quick customisation. If you want even more fine grain... venture further. */
 
- :root {
+:root {
     --maincolor: #FFFFFF;
     --primarycolor: #000000;
     --secondarycolor: #000000;
@@ -24,6 +25,13 @@
 
 body {
     font-family: "Source Code Pro", sans-serif;
+}
+
+#header,
+#content,
+#footnotes,
+#footer {
+    max-width: 60%;
 }
 
 
@@ -51,6 +59,14 @@ h6 {
 }
 
 
+/* headline */
+
+.sect0 {
+    padding-top: 1.25em;
+    background-color: red;
+}
+
+
 /* Sidebar */
 
 #toctitle {
@@ -58,11 +74,11 @@ h6 {
 }
 
 .sectlevel1 {
-    font-family: "Source Code Pro", sans-serif!important;
+    font-family: "Source Code Pro", sans-serif !important;
 }
 
 .sectlevel2 {
-    font-family: "Source Code Pro", sans-serif!important;
+    font-family: "Source Code Pro", sans-serif !important;
 }
 
 
