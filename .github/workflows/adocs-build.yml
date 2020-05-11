@@ -22,7 +22,11 @@ jobs:
     #- name: Copy styles
     #  run: cp -R ./styles ./output
     #- name: Copy images
-    #  run: cp -R ./images ./output      
+    #  run: cp -R ./images ./output
+    - name: list
+      run: ls -la ./
+    - name: list
+      run: ls -la ./public
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with:
