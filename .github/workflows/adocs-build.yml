@@ -21,8 +21,8 @@ jobs:
           #program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
     #- name: Copy styles
     #  run: cp -R ./styles ./output
-    - name: cleanup
-      run: rm -rf ./public
+    #- name: Cleanup
+    #  run: rm -rf ./public
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with:
