@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "/blog"
 languageCode = "en-us"
 title = "Odyssey of a software engineer"
 theme = "mainroad"
