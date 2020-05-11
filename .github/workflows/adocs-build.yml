@@ -15,16 +15,17 @@ jobs:
       uses: asdf-vm/actions/install@v1.0.0
     - name: Build asciidoc
       id: adocbuild
-      run: asciidoctorj docs/index.adoc -D output
+      run: ./hugo/pipiobjo/hugoBuild.sh
+          #asciidoctorj docs/index.adoc -D output
           #program: "asciidoctor --backend=html5 docs/index.adoc -o output/index.html -a stylesheet=../styles/monospace.css -a imagesdir=./docs/images/"
           #program: "asciidoctorj docs/index.adoc -D output -B ./ -a stylesheet=./styles/monospace.css"
-    - name: Copy styles
-      run: cp -R ./styles ./output
-    - name: Copy images
-      run: cp -R ./images ./output      
+    #- name: Copy styles
+    #  run: cp -R ./styles ./output
+    #- name: Copy images
+    #  run: cp -R ./images ./output      
     - name: Deploy docs to ghpages
       uses: peaceiris/actions-gh-pages@v3
       with:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}} 
         PUBLISH_BRANCH: gh-pages
-        PUBLISH_DIR: ./output
+        PUBLISH_DIR: ./public
