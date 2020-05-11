@@ -1,0 +1,72 @@
+---
+draft: false
+title: "About this page / GDPR / DSGVO"
+description: " "
+summary: " "
+lead: "" # Lead text
+# date: 2020-05-09T17:12:27+02:00
+mathjax: true           # Enable MathJax for specific page
+menu: footer
+
+---
+
+
+
+
+Das ist mein persönliches Blog, wo ich frei und offen über meine Meinungen rede, über Themen poste die ich spannend finde. Die hier geposteten Artikel spiegeln deshalb nur meine persönliche Meinung wider und sind in keinster Weise mit meiner Arbeit verbunden.
+
+This is my private blog where I post things I care about, explain stuff I think is worth knowing about. This blog thus solely expresses my private, personal opinions and is not representative of my work.
+
+## Impressum
+
+Angaben gemäß § 5 TMG
+Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
+
+Björn Pipiorke
+Linsenhofer Str. 22
+72660 Beuren
+GERMANY
+
+## Contact:
+
+E-Mail: pipiobjo+blog@googlemail.com
+
+## Datenschutzerklärung (DSGVO)
+
+Auf dieser Webseite werden keine personenbezogenen Daten erhoben, gespeichert oder verarbeitet. Es werden keine Cookies verwendet.
+
+## Data Protection Policy (GDPR)
+
+This website does not collect, store or process Personally Identifiable Information (PII). This website does not require the use of cookies.
+
+## Verweis auf Dritte
+
+### Github - github.com
+
+Diese Website wird auf https://www.github.com/[Github] als https://help.github.com/articles/what-is-github-pages/[Github Pages] gehostet. Die Github Global Privacy Practices sind https://help.github.com/articles/global-privacy-practices/[hier] hinterlegt.
+
+### Cloudflare cdnjs.com
+
+Diese Seite nutzt zur Optimierung des Zugriffs auf Javascript- CSS-Libraries den CDN Dienst cdnjs.com, bereitgestellt von by Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA ("Cloudflare").
+
+Bei jedem Seitenaufruf stellt Ihr Browser eine direkte Verbindung mit Cloudflare Servern her. Hierdurch erlangt Cloudflare Kenntnis darüber, dass über Ihre IP-Adresse unsere Website aufgerufen wurde. Die Nutzung von cdnjs.com erfolgt im Interesse einer schnellen, sicheren und optimierten Übertragung und Darstellung unserer Online-Angebote. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 (1) (f) DSGVO dar.
+
+Weitere Informationen zu cdnjs.com finden Sie unter https://cdnjs.com/about und in der Datenschutzerklärung von Cloudflare: https://www.cloudflare.com/security-policy/.
+
+
+
+## Third Party Inclusion
+
+### Github - github.com
+
+This website is hosted by https://www.github.com/[Github] using https://help.github.com/articles/what-is-github-pages/[Github Pages]. The Github Global Privacy Practices are available https://help.github.com/articles/global-privacy-practices/[here].
+
+### Cloudflare cdnjs.com
+
+For improved access to static content like JavaScript and CSS libraries, this page uses the CDN service cdnjs.com provided by Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA ("Cloudflare").
+
+For every page you visit, your browser makes a direct connection with Cloudflare servers. Cloudflare thus becomes aware that our web page was accessed via your IP address. The use of cdnjs.com is done in the interest of a fast, secure, and optimized transfer and presentation of our website. This constitutes a justified interest pursuant to Art. 6 (1) (f) DSGVO.
+
+Further information about cdnjs.com can be found at https://cdnjs.com/about and in Cloudflare’s privacy policy at: https://www.cloudflare.com/security-policy/
+ 
+ 

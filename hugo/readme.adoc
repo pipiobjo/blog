@@ -1,0 +1,64 @@
+# hugo notes
+
+
+hugo quickstart
+https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site
+
+
+Help you to create post
+
+
+installed theme 
+https://hugothemes.gitlab.io/mainroad/
+https://github.com/Vimux/Mainroad/
+
+
+
+Just a few more steps and you're ready to go:
+
+1. Download a theme into the same-named folder.
+   Choose a theme from https://themes.gohugo.io/ or
+   create your own with the "hugo new theme <THEMENAME>" command.
+2. Perhaps you want to add some content. You can add single files
+   with "hugo new <SECTIONNAME>/<FILENAME>.<FORMAT>".
+3. Start the built-in live server via "hugo server".
+
+Visit https://gohugo.io/ for quickstart guide and full documentation.
+
+
+
+## Create new post
+
+
+```bash
+
+hugo new posts/my-first-post.adoc
+
+
+
+```
+
+
+
+## Start hugo server with drafts enabled
+
+
+```bash
+
+hugo server -D
+
+```
+
+
+## Final static page generation
+
+.default folder ./public use '-d / --destination' to change 
+.drafts are not included
+
+```bash
+
+hugo 
+
+```
+
+

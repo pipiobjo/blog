@@ -1,0 +1,250 @@
+---
+draft: false
+title: "My First Post"
+description: "Example article description"
+summary: "adslfjaslfjasdlsdjfsdlj summary"
+lead: "Example lead - highlighted near the title" # Lead text
+date: 2020-04-05T17:12:27+02:00
+mathjax: true           # Enable MathJax for specific page
+category: 
+    - blogging
+tags: 
+    - "basic"
+---
+
+
+= test
+:toc: left
+:source-highlighter: prismjs
+
+//:icons: glyph
+:icons: font
+
+////
+
+:caution-caption: icon:tags[role="blue"]
+:important-caption: ❗
+:note-caption: 🛈
+:tip-caption: 💡
+:warning-caption: ⚠
+////
+
+
+
+
+
+
+== Overview
+
+In my world, we don't have to worry about mutant, script-injecting warlocks.
+No.
+We have something far worse.
+We're plagued by Wolpertingers.
+
+
+https://foo-dogsquared.github.io/hugo-theme-arch-terminal-demo/ +
+https://prismjs.com/index.html#basic-usage +
+https://foo-dogsquared.github.io/blog/posts/blogging-with-asciidoctor-and-hugo/ +
+https://mrhaki.blogspot.com/2016/11/awesome-asciidoctor-using-ruby.html +
+http://ratfactor.com/hugo-adoc-html5s/ +
+
+
+.Hugo and asciidoc
+https://blog.anoff.io/2019-02-17-hugo-render-asciidoc/ +
+https://asciidoctor.org/docs/produce-custom-themes-using-asciidoctor-stylesheet-factory/ +
+
+
+---
+== Source formatting
+
+
+
+.Build the library docker container
+[source,bash]
+----
+
+cd app
+gradle jibDockerBuild
+
+----
+
+
+---
+=== Subsection
+
+In my world, we don't have to worry about mutant, script-injecting warlocks.
+No.
+We have something far worse.
+We're plagued by Wolpertingers.
+
+.some java code
+[source,java,linenums,highlight=1;3-7;!5]
+----
+
+package de.mymonitoring.bookmanangement;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BookmanangementApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BookmanangementApplication.class, args);
+	}
+
+}
+
+
+----
+
+
+
+
+.Code with explanation
+[source,ruby]
+----
+require 'sinatra' // <1>
+
+get '/hi' do // <2>
+  "Hello World!" // <3>
+end // <4>
+----
+<1> Library import
+<2> URL mapping
+<3> HTTP response body
+<4> Ende
+
+
+---
+== Math formulas
+
+https://foo-dogsquared.github.io/hugo-theme-arch-terminal-demo/articles/mathjax-support-for-asciidoctor/
+
+http://pillars.che.pitt.edu/LaTeXMathML/latexmathmlguide.xhtml
+
+\[\LaTeX\text{ is awesome.}\] 
+
+\[ This is a LaTeX sentence (or I guess in MathJax).\] 
+
+
+.Fractions
+\[\frac{x_1 + y_2}{x_2 + y_1}\]
+
+.Roots
+\[\sqrt{2a + b}\]
+
+
+.Latexmath block test
+[latexmath]
+++++
+\sqrt{4} = 2
+++++
+
+
+---
+== Emoji support 
+
+https://www.webfx.com/tools/emoji-cheat-sheet/ +
+
+:see_no_evil: :hear_no_evil: :speak_no_evil:
+
+
+.customize emoji styling
+[source,css]
+----
+
+.emoji {
+font-family: Apple Color Emoji,Segoe UI Emoji,NotoColorEmoji,Segoe UI Symbol,Android Emoji,EmojiSymbols;
+}
+----
+
+https://gohugo.io/functions/emojify/ +
+https://foo-dogsquared.github.io/hugo-theme-arch-terminal-demo/articles/emoji-support/ +
+
+
+
+---
+## Extended asciidoc syntax
+
+https://foo-dogsquared.github.io/hugo-theme-arch-terminal-demo/articles/asciidoctor-extended-syntax-guide/ +
+
+
+// Change icon size
+//icon:comment[4x] This is a comment icon
+// Alternative icon:comment[size="4x"]
+// Possible values: large, 2x, 3x, 4x, 5x
+ 
+// Flip and rotate
+//icon:file[flip="vertical", rotate="180", role="lime"] And a file icon
+// Possible flip values: vertical, horizontal
+// Possible rotate values: 90, 180, 270
+
+
+CAUTION: Caution.
+
+CAUTION: Don't forget to add the `...-caption` document attributes in the header of the document on GitHub.
+
+IMPORTANT: Important.
+
+
+IMPORTANT: Asciidoctor is awesome, don't forget!
+
+[NOTE]
+====
+An admonition block may contain complex content.
+
+.A list
+- one
+- two
+- three
+
+Another paragraph.
+====
+
+NOTE: Asciidoctor supports font-based admonition icons, powered by Font Awesome!
+
+TIP: Tip.
+
+
+TIP: It works!
+
+
+WARNING: Warning.
+
+
+WARNING: You have no reason not to use Asciidoctor.
+
+ 
+=== Using fontawesome icons
+
+
+https://fontawesome.com/v4.7.0/icons/
+
+icon:tags[role="blue"] ruby, asciidoctor +
+
+icon:heart[size=2x, role="yellow"] +
+
+// Change icon size
+icon:comment-o[4x] This is a comment icon upscaled 4 times +
+// Possible values: large, 2x, 3x, 4x, 5x
+ 
+icon:file[] normal file icon + 
+icon:file[flip="vertical"] flipped vertical file icon + 
+icon:file[rotate="180"] rotated file icon + 
+icon:file[flip="vertical", rotate="180", role="lime"] And a file icon, flipped vertical, rotated by 180 and colored lime +
+// Possible flip values: vertical, horizontal
+// Possible rotate values: 90, 180, 270
+
+
+---
+## RSS, Atom, and JSON Feed Support
+
+
+https://foo-dogsquared.github.io/hugo-theme-arch-terminal-demo/articles/rss-atom-and-json-feed-support/
+
+
+---
+## Color theory
+
+https://webflow.com/blog/web-design-101-color-theory

@@ -1,0 +1,35 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Odyssey of a software engineer"
+theme = "mainroad"
+paginate = "20" # Number of posts per page
+enableEmoji = true
+
+
+[Params]
+  subtitle = "I have not failed. I've just found 10000 ways that won't work - Thomas A. Edison" # Subtitle of your site. Used in site header
+  description = "John Doe's Personal blog about everything" # Site description. Used in meta description
+  languageCode = "en"
+  copyright = "" # Footer copyright holder, otherwise will use site title
+  opengraph = true # Enable OpenGraph if true
+  twitter_cards = true # Enable Twitter Cards if true
+  readmore = false # Show "Read more" button in list if true
+  authorbox = false # Show authorbox at bottom of pages if true
+  toc = false # Enable Table of Contents
+  post_navigation = true # Show post navigation at bottom of pages if true
+  post_meta = ["date", "categories", "translations"] # Order of post meta information
+  mainSections = ["posts","footer"] # Specify section pages to show on home page and the "Recent articles" widget
+  dateformat = "2006-01-02" # Change the format of dates
+  mathjax = true # Enable MathJax
+  mathjaxPath = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js" # Specify MathJax path
+  mathjaxConfig = "TeX-AMS-MML_HTMLorMML" # Specify MathJax config
+  highlightColor = "#e22d30" # Override highlight color
+  
+
+
+[Params.sidebar]
+  home = "right" # Configure layout for home page
+  list = "left"  # Configure layout for list pages
+  single = true # Configure layout for single pages
+  # Enable widgets in given order
+  widgets = ["recent", "categories", "taglist", "social", "languages"]

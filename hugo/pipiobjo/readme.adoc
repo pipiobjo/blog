@@ -1,0 +1,16 @@
+Help you to create post
+
+
+installed theme 
+https://hugothemes.gitlab.io/mainroad/
+https://github.com/Vimux/Mainroad/
+
+
+hugo quickstart
+https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site
+
+
+```bash
+hugo new posts/my-first-post.adoc
+
+```

@@ -1,0 +1,30 @@
+#!/bin/bash
+#set -x
+args="$@"
+# echo "hugo asciidoc args $args" > asciidoc.log
+# hugo asciidoc args --no-header-footer --safe --trace -
+
+
+SOURCE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+
+#-I, --load-path
+#      add a directory to the $LOAD_PATH may be specified more than once
+LOAD_PATH=$SOURCE/asciidoc
+
+#    -cp, -classpath, --classpath
+#      add a directory to the classpath may be specified more than once
+CP=$SOURCE/asciidoc
+
+
+
+#ext="-r asciidoctor-html5s -b html5s -r asciidoctor-diagram"
+ext="-r asciidoctor-diagram"
+trgtADOC="~/.asdf/shims/asciidoctorj"
+
+cmd="$trgtADOC $ext $args"
+
+#echo "cmd=$cmd" > asciidoc.log
+#export GEM_PATH=$SOURCE/asciidoc
+
+bash -c "$cmd"
+
