@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Reset failed usb port on ubuntu - Odyssey of a software engineer</title>
+	<script>(function(d,e){d[e]=d[e].replace("no-js","js");})(document.documentElement,"className");</script>
+	<meta name="description" content="Howto fix &#39;device descriptor read/8, error -110&#39; for usb ports without reboot">
+	<meta property="og:title" content="Reset failed usb port on ubuntu" />
+<meta property="og:description" content="Howto fix &#39;device descriptor read/8, error -110&#39; for usb ports without reboot" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/blog/posts/reset-usb-port-without-reboot/" />
+<meta property="article:published_time" content="2020-05-24T21:27:37+02:00" />
+<meta property="article:modified_time" content="2020-05-24T21:27:37+02:00" />
+
+	<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reset failed usb port on ubuntu"/>
+<meta name="twitter:description" content="Howto fix &#39;device descriptor read/8, error -110&#39; for usb ports without reboot"/>
+
+
+	<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  
+
+
+
+
+
+
+	<link rel="stylesheet" href="/blog/css/style.css">
+	
+	<link rel="shortcut icon" href="/blog/favicon.ico">
+		
+	
+	<link rel="stylesheet" href="/blog/css/prism.css">
+	
+</head>
+<body class="body">
+	<div class="container container--outer">
+		<header class="header">
+	<div class="container">
+		<div class="logo">
+			<a class="logo__link" href="/blog" title="Odyssey of a software engineer" rel="home">
+				<div class="logo__title">Odyssey of a software engineer</div>
+				<div class="logo__tagline">I have not failed. I&#39;ve just found 10000 ways that won&#39;t work - Thomas A. Edison</div>
+			</a>
+		</div>
+		<div class="divider"></div>
+	</div>
+</header>
+		<div class="wrapper flex">
+			<div class="primary">
+			
+<main class="main" role="main">
+	<article class="post">
+		<header class="post__header">
+			<h1 class="post__title">Reset failed usb port on ubuntu</h1>
+			<div class="post__meta meta">
+<div class="meta__item-datetime meta__item">
+	<svg class="meta__icon icon icon-time" width="16" height="14" viewBox="0 0 30 28"><path d="M15 0C7 0 1 6 1 14s6 14 14 14 14-6 14-14S23 0 15 0zm0 25C9 25 4 20 4 14S9 3 15 3s11 5 11 11-5 11-11 11zm1-18h-2v8.4l6.8 4.4L22 18l-6-3.8V7z"/></svg><time class="meta__text" datetime="2020-05-24T21:27:37&#43;02:00">2020-05-24</time></div></div>
+		</header><div class="content post__content clearfix">
+			<div id="toc" class="toc">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_overview">Overview</a></li>
+<li><a href="#_solution">Solution</a></li>
+</ul>
+</div>
+<div class="sect1">
+<h2 id="_overview">Overview</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I experienced some troubles with my docking station connected via usb or usb-c. The usb port on my notebook suddenly terminates with an error a quick research does not came up with a pleasant solution.
+So I started with my own.</p>
+</div>
+<div class="listingblock">
+<div class="title">Error message</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">[985131.231652] usb 1-8: device descriptor read/8, error -110
+[985136.607660] usb 1-8: device descriptor read/8, error -110
+[985136.845235] usb 1-8: reset high-speed USB device number 4 using xhci_hcd
+[985142.223700] usb 1-8: device descriptor read/8, error -110
+[985147.599602] usb 1-8: device descriptor read/8, error -110
+[985147.841246] usb 1-8: reset high-speed USB device number 4 using xhci_hcd</code></pre>
+</div>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_solution">Solution</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Based on the recommendation found <a href="https://www.ubuntubuzz.com/2016/06/reset-usb-20-ehci-usb-30-xhci-without-reboot-linux.html">here</a> I started with the following</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">echo -n "0000:00:14.0" | tee /sys/bus/pci/drivers/xhci_hcd/unbind
+echo -n "0000:00:14.0" | tee /sys/bus/pci/drivers/xhci_hcd/bind</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For me that wasnt enough,I also had to unload the kernel modules, bundle all of them into a script</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">#!/bin/bash
+
+sudo modprobe -r usbhid &amp;&amp; sleep 5 &amp;&amp; sudo modprobe usbhid
+sudo modprobe -r usb-storage &amp;&amp; sleep 5 &amp;&amp; sudo modprobe usb-storage
+
+DEV_ID=$(basename $(find /sys/bus/pci/drivers/xhci_hcd/ -maxdepth 1 -type l))
+echo -n "$DEV_ID" &gt; sudo tee /sys/bus/pci/drivers/xhci_hcd//unbind
+echo ''
+sleep 3
+lsusb
+echo -n "$DEV_ID" &gt; sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+echo ''
+notify-send -a "usb port resetter" "USB Device and kernel modules reloaded" "DEVICE $DEV_ID" <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+</div>
+</div>
+<div class="colist arabic">
+<table>
+<tr>
+<td><i class="conum" data-value="1"></i><b>1</b></td>
+<td>use notify-send to send notification to desktop <a href="https://wiki.debianforum.de/Desktop-Notification_von_Systemservice_mittels_dbus#von_der_Shell">libnotify-bin</a></td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Maybe a better device info can be given by parsing information from  /sys/kernel/debug/usb/devices</p>
+</div>
+</div>
+</div>
+
+		</div>
+		<footer class="post__footer">
+			
+<div class="post__tags tags clearfix">
+	<svg class="tags__badge icon icon-tag" width="16" height="16" viewBox="0 0 32 32"><path d="M32 19c0 1-1 2-1 2L21 31s-1 1-2 1-2-1-2-1L2 16c-1-1-1.4-2-1.4-2S0 12.5 0 11V3C0 1.5.8.8.8.8S1.5 0 3 0h8c1.5 0 3 .6 3 .6S15 1 16 2l15 15s1 1 1 2zM7 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/></svg>
+	<ul class="tags__list">
+		<li class="tags__item">
+			<a class="tags__link btn" href="/blog/tags/ubuntu/" rel="tag">ubuntu</a>
+		</li>
+	</ul>
+</div>
+		</footer>
+	</article>
+</main>
+
+
+<nav class="post-nav flex">
+	<div class="post-nav__item post-nav__item--prev">
+		<a class="post-nav__link" href="/blog/posts/my-first-post/" rel="prev">
+			<span class="post-nav__caption">«&thinsp;Previous</span>
+			<p class="post-nav__post-title">My First Post</p>
+		</a>
+	</div>
+</nav>
+
+
+			</div>
+			<aside class="sidebar">
+<div class="widget-recent widget">
+	<h4 class="widget__title">Recent Posts</h4>
+	<div class="widget__content">
+		<ul class="widget__list">
+			<li class="widget__item"><a class="widget__link" href="/blog/posts/reset-usb-port-without-reboot/">Reset failed usb port on ubuntu</a></li>
+			<li class="widget__item"><a class="widget__link" href="/blog/posts/my-first-post/">My First Post</a></li>
+		</ul>
+	</div>
+</div>
+<div class="widget-taglist widget">
+	<h4 class="widget__title">Tags</h4>
+	<div class="widget__content">
+		<a class="widget-taglist__link widget__link btn" href="/blog/tags/basic/" title="basic">basic</a>
+		<a class="widget-taglist__link widget__link btn" href="/blog/tags/ubuntu/" title="ubuntu">ubuntu</a>
+	</div>
+</div>
+</aside>
+		</div>
+		<footer class="footer">
+	<div class="container footer__container flex">
+		
+<div class="footer__links">
+	<a class="footer__link" href="/blog/about/impressum/">About this page / GDPR / DSGVO</a>
+</div>
+		<div class="footer__copyright">
+			&copy; 2020 Odyssey of a software engineer.
+			<span class="footer__copyright-credits">Generated with <a href="https://gohugo.io/" rel="nofollow noopener" target="_blank">Hugo</a> and <a href="https://github.com/Vimux/Mainroad/" rel="nofollow noopener" target="_blank">Mainroad</a> theme.</span>
+		</div>
+	</div>
+</footer>
+	</div>
+<script async defer src="/blog/js/menu.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.6/MathJax.js?config=TeX-AMS-MML_HTMLorMML" async></script>
+<script src="/blog/js/lib/prism.js"></script>
+
+
+</body>
+</html>

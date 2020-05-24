@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ubuntu on Odyssey of a software engineer</title>
+    <link>/blog/tags/ubuntu/</link>
+    <description>Recent content in ubuntu on Odyssey of a software engineer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 May 2020 21:27:37 +0200</lastBuildDate>
+    
+	<atom:link href="/blog/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Reset failed usb port on ubuntu</title>
+      <link>/blog/posts/reset-usb-port-without-reboot/</link>
+      <pubDate>Sun, 24 May 2020 21:27:37 +0200</pubDate>
+      
+      <guid>/blog/posts/reset-usb-port-without-reboot/</guid>
+      <description>&lt;div class=&#34;paragraph&#34;&gt;
+&lt;p&gt;Howto fix &#39;device descriptor read/8, error -110&#39; for usb ports without reboot&lt;/p&gt;
+&lt;/div&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

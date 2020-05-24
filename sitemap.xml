@@ -3,27 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/blog/</loc>
+    <lastmod>2020-05-24T21:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/posts/</loc>
+    <lastmod>2020-05-24T21:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/posts/reset-usb-port-without-reboot/</loc>
+    <lastmod>2020-05-24T21:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tags/</loc>
+    <lastmod>2020-05-24T21:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/blog/tags/ubuntu/</loc>
+    <lastmod>2020-05-24T21:27:37+02:00</lastmod>
+  </url>
+  
+  <url>
     <loc>/blog/tags/basic/</loc>
     <lastmod>2020-04-05T17:12:27+02:00</lastmod>
   </url>
   
   <url>
     <loc>/blog/posts/my-first-post/</loc>
-    <lastmod>2020-04-05T17:12:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/</loc>
-    <lastmod>2020-04-05T17:12:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/posts/</loc>
-    <lastmod>2020-04-05T17:12:27+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/blog/tags/</loc>
     <lastmod>2020-04-05T17:12:27+02:00</lastmod>
   </url>
   

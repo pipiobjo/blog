@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Odyssey of a software engineer</title>
@@ -6,10 +5,23 @@
     <description>Recent content in Posts on Odyssey of a software engineer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Apr 2020 17:12:27 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 24 May 2020 21:27:37 +0200</lastBuildDate>
     
-	<atom:link href="/blog/posts/index.xml" rel="self" type="application/rss+xml" />
+        <atom:link href="/blog/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Reset failed usb port on ubuntu</title>
+      <link>/blog/posts/reset-usb-port-without-reboot/</link>
+      <pubDate>Sun, 24 May 2020 21:27:37 +0200</pubDate>
+      
+      <guid>/blog/posts/reset-usb-port-without-reboot/</guid>
+      <description><div class="paragraph">
+<p>Howto fix 'device descriptor read/8, error -110' for usb ports without reboot</p>
+</div></description>
+      <enclosure url="/blog/posts/reset-usb-port-without-reboot/" type="text/html" />
+
+    </item>
     
     <item>
       <title>My First Post</title>
@@ -17,10 +29,12 @@
       <pubDate>Sun, 05 Apr 2020 17:12:27 +0200</pubDate>
       
       <guid>/blog/posts/my-first-post/</guid>
-      <description>&lt;div class=&#34;paragraph&#34;&gt;
-&lt;p&gt;adslfjaslfjasdlsdjfsdlj summary&lt;/p&gt;
-&lt;/div&gt;</description>
+      <description><div class="paragraph">
+<p>adslfjaslfjasdlsdjfsdlj summary</p>
+</div></description>
+      <enclosure url="/blog/posts/my-first-post/" type="text/html" />
+
     </item>
     
   </channel>
-</rss>
+</rss>  
