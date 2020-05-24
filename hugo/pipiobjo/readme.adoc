@@ -14,3 +14,13 @@ https://gohugo.io/getting-started/quick-start/#step-2-create-a-new-site
 hugo new posts/my-first-post.adoc
 
 ```
+
+
+
+
+# RSS Feed
+
+https://support.google.com/podcast-publishers/answer/9476656?hl=de#create_feed
+
+
+Template siehe layouts/posts/rss.xml

@@ -22,10 +22,13 @@ This is my private blog where I post things I care about, explain stuff I think 
 Angaben gemäß § 5 TMG
 Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV
 
+////
 Björn Pipiorke
 Linsenhofer Str. 22
 72660 Beuren
 GERMANY
+////
+
 
 ## Contact:
 

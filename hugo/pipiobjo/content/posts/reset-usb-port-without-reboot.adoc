@@ -1,0 +1,99 @@
+---
+draft: false
+title: "Reset failed usb port on ubuntu"
+description: "Howto fix 'device descriptor read/8, error -110' for usb ports without reboot"
+summary: "Howto fix 'device descriptor read/8, error -110' for usb ports without reboot"
+#lead: "Howto fix 'device descriptor read/8, error -110' for usb ports without reboot" # Lead text
+date: 2020-05-24T21:27:37+02:00
+mathjax: true           # Enable MathJax for specific page
+category: 
+    - blogging
+tags: 
+    - "ubuntu"
+---
+
+
+= test
+:toc: left
+:source-highlighter: prismjs
+
+//:icons: glyph
+:icons: font
+
+////
+
+:caution-caption: icon:tags[role="blue"]
+:important-caption: ❗
+:note-caption: 🛈
+:tip-caption: 💡
+:warning-caption: ⚠
+////
+
+
+
+
+
+
+== Overview
+
+I experienced some troubles with my docking station connected via usb or usb-c. The usb port on my notebook suddenly terminates with an error a quick research does not came up with a pleasant solution. 
+So I started with my own. 
+
+
+.Error message
+[source,bash]
+----
+
+[985131.231652] usb 1-8: device descriptor read/8, error -110
+[985136.607660] usb 1-8: device descriptor read/8, error -110 
+[985136.845235] usb 1-8: reset high-speed USB device number 4 using xhci_hcd
+[985142.223700] usb 1-8: device descriptor read/8, error -110
+[985147.599602] usb 1-8: device descriptor read/8, error -110
+[985147.841246] usb 1-8: reset high-speed USB device number 4 using xhci_hcd
+
+----
+
+
+
+---
+== Solution
+
+
+Based on the recommendation found https://www.ubuntubuzz.com/2016/06/reset-usb-20-ehci-usb-30-xhci-without-reboot-linux.html[here] I started with the following
+
+
+[source,bash]
+----
+
+echo -n "0000:00:14.0" | tee /sys/bus/pci/drivers/xhci_hcd/unbind
+echo -n "0000:00:14.0" | tee /sys/bus/pci/drivers/xhci_hcd/bind
+
+----
+
+For me that wasnt enough,I also had to unload the kernel modules, bundle all of them into a script
+
+[source,bash]
+----
+
+#!/bin/bash
+
+sudo modprobe -r usbhid && sleep 5 && sudo modprobe usbhid
+sudo modprobe -r usb-storage && sleep 5 && sudo modprobe usb-storage
+
+DEV_ID=$(basename $(find /sys/bus/pci/drivers/xhci_hcd/ -maxdepth 1 -type l))
+echo -n "$DEV_ID" > sudo tee /sys/bus/pci/drivers/xhci_hcd//unbind
+echo ''
+sleep 3
+lsusb
+echo -n "$DEV_ID" > sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+echo ''
+notify-send -a "usb port resetter" "USB Device and kernel modules reloaded" "DEVICE $DEV_ID" <1>
+
+----
+<1> use notify-send to send notification to desktop https://wiki.debianforum.de/Desktop-Notification_von_Systemservice_mittels_dbus#von_der_Shell[libnotify-bin]
+
+
+Maybe a better device info can be given by parsing information from  /sys/kernel/debug/usb/devices
+
+
+
